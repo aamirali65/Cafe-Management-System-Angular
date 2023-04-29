@@ -1,0 +1,254 @@
+.wrap {
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+}
+
+.wrap .img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-wrap {
+    position: relative;
+}
+
+.login-wrap h3 {
+    font-weight: 300;
+}
+
+.social-media {
+    position: relative;
+    width: 100%;
+}
+
+.social-media .social-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.social-media .social-icon span {
+    color: #999999;
+}
+
+.form-group {
+    position: relative;
+    z-index: 0;
+    margin-bottom: 20px !important;
+}
+
+.checkbox-wrap {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    user-select: none;
+}
+
+.field-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.3);
+}
+.form-group {
+    position: relative;
+    z-index: 0;
+    margin-bottom: 20px !important;
+}
+
+.form-group a {
+    color: gray;
+}
+
+.form-control {
+    height: 48px;
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.2) !important;
+}
+.form-control:focus,
+.form-control:active {
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #1976d2;
+}
+
+.field-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.form-control-placeholder {
+    position: absolute;
+    top: 2px;
+    padding: 7px 0 0 15px;
+    transition: all 400ms;
+    opacity: .6;
+}
+
+.form-control:focus+.form-control-placeholder,
+.form-control:valid+.form-control-placeholder {
+    transform: translate3d(0, -120%, 0);
+    padding: 7px 0 0 0;
+    opacity: 1;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #1976d2;
+    font-weight: 700;
+}
+
+.social-media {
+    position: relative;
+    width: 100%;
+}
+
+.social-media .social-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.social-media .social-icon span {
+    color: #999999;
+}
+
+.social-media .social-icon:hover,
+.social-media .social-icon:focus {
+    background: #1976d2;
+}
+
+.social-media .social-icon:hover span,
+.social-media .social-icon:focus span {
+    color: #fff;
+}
+
+.checkbox-wrap {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    user-select: none;
+}
+
+.checkbox-wrap input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.checkmark:after {
+    content: "\f0c8";
+    font-family: "FontAwesome";
+    position: absolute;
+    color: rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    margin-top: -4px;
+    transition: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .checkmark:after {
+        -webkit-transition: none;
+        -o-transition: none;
+        transition: none;
+    }
+}
+
+.checkbox-wrap input:checked~.checkmark:after {
+    display: block;
+    content: "\f14a";
+    font-family: "FontAwesome";
+    color: rgba(0, 0, 0, 0.936);
+}
+
+.btn {
+    cursor: pointer;
+    box-shadow: none !important;
+    font-size: 15px;
+    padding: 10px 20px;
+}
+.forga{
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+}
+.submit:hover{
+    background-color:#1976d2;
+    color: white;
+    transition: 0.2s;
+}
+.img, .login-wrap {
+    width: 50%;
+}
+
+.img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.login-wrap {
+    position: relative;
+    background: #fff;
+}
+.end-data{
+    text-align: end;
+}
+.ftco-section {
+    padding: 10em 0;
+}
+.btn-submit{
+    background-color: #1976d2;
+    color: white;
+}
+
+
+.inputs input{
+    border-left: 4px solid #1976d2;
+    border-right: 4px solid #1976d2;
+    border-radius: 10px;
+}

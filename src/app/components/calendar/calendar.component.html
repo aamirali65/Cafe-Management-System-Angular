@@ -1,0 +1,116 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="datepickr">
+        <div class="left">
+          <div class="datees">
+            <h1>{{today}}</h1>
+            <span>{{ day }}</span>
+          </div>
+          <div class="sale">
+            <span class="loader" *ngIf="loader"></span>
+            <ngb-accordion #acc="ngbAccordion" [closeOthers]="true" [activeIds]="activePanelId" *ngIf="!loader">
+              <ngb-panel *ngFor="let detail of details; index as i" [id]="'panel-' + i">
+                <ng-template ngbPanelTitle>
+                  <div class="bil">
+                    <h6>{{detail.name}}</h6>
+                    <span>{{detail.amount}}</span>
+                  </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <div class="table-c">
+                    <table class="table">
+                      <thead>
+                        <tr>
+
+                          <th scope="col">Bill ID</th>
+                          <th scope="col">Total Item</th>
+                          <th scope="col">Total Price</th>
+                          <th scope="col">User</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of detail.details ">
+                          <th scope="row">ORD-{{item.id}}</th>
+                          <td>{{item.list_items_count}}</td>
+                          <td>{{item.total_price}}</td>
+                          <td>{{item.users?.name}}</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </ng-template>
+
+
+
+              </ngb-panel>
+
+            </ngb-accordion>
+          </div>
+          <div class="revnue" *ngIf="!loader" >
+            <h3>Total Revenue</h3>
+            <h3>{{total_price??0}}</h3>
+            <button class="btn btn-primary theme_btn" (click)="printAll('sectionToPrint')">Print Now</button>
+          </div>
+        </div>
+        <ngb-datepicker #d class="booking" [(ngModel)]="selectedDate" [dayTemplate]="customDay"
+          (ngModelChange)="onDateSelection()" [minDate]="minDate" [maxDate]="maxDate"></ngb-datepicker>
+
+<ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected"
+          let-focused="focused">
+  <div class="custom-day" [class.selected]="selected" [class.focused]="focused"
+       [ngClass]="{'active': date.equals(selectedDate)}">
+    <div class="day-number">{{ date.day }}</div>
+  </div>
+</ng-template>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sectionToPrint" style="display: none;">
+  <div class="invoice">
+    <div class="img">
+      <img src="https://marksman.pk/assets/images/logo.png" alt="Restaurant Logo" style="width: 80%;margin:auto;margin-top: 20px;">
+    </div>
+    <div class="invoice-header">
+      <div class="date">
+        <p>Date: </p>
+        <span> {{formattedDate}}</span>
+      </div>
+      <div class="date">
+        <p>User: </p>
+        <span>{{user}}</span>
+      </div>
+      <div class="date">
+        <p>Print Time: </p>
+        <span> {{formattedTime}}</span>
+      </div>
+    </div>
+    <table class="invoice-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th class="th">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detail of details; index as i">
+          <td>{{detail.name}}</td>
+          <td style="text-align: center !important;">{{detail.amount}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="invoice-total">
+      <p>Total:</p>
+      <p>Rs.{{total_price}}</p>
+    </div>
+    <div class="text-center my-5">
+      <span>Powered By Technologenesis LTD</span>
+    </div>
+  </div>
+</div>

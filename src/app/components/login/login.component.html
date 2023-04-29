@@ -1,0 +1,149 @@
+<section class="ftco-section">
+  <div class="container containss">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-12">
+        <div class="wrap d-md-flex">
+          <div
+            class="img"
+            style="background-image: url(../../../assets/img/bg.jpg);"
+          ></div>
+          <div class="login-wrap p-4 p-md-5" *ngIf="!forget_pass">
+            <div class="d-flex">
+              <div class="w-100">
+                <h3 class="mb-4">Sign In</h3>
+              </div>
+            </div>
+            <form
+              #loginForm="ngForm"
+              (ngSubmit)="onSubmit(loginForm)"
+              class="signin-form"
+            >
+              <div class="form-group mb-3 inputs">
+                <label class="label" for="name">Username</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                  required
+                  id="email"
+                  name="email"
+                  [(ngModel)]="user.email"
+                />
+              </div>
+              <div class="form-group mb-3 inputs">
+                <label class="label" for="password">Password</label>
+                <input
+                  type="password"
+                  class="form-control inputs"
+                  placeholder="Password"
+                  id="password"
+                  class="form-control"
+                  name="password"
+                  [(ngModel)]="user.password"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="form-control btn btn-primary rounded submit px-3 btn-submit"
+                  [disabled]="loginForm.invalid"
+                >
+                  Sign In
+                </button>
+              </div>
+            </form>
+            <div class="form-group d-md-flex">
+              <div class="w-50 text-left"></div>
+              <div class="w-50 text-md-right end-data">
+                <a (click)="forgot_pass()">Forgot Password</a>
+              </div>
+            </div>
+            <!-- <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p> -->
+          </div>
+          <div class="login-wrap p-4 p-md-5" *ngIf="forget_pass" >
+            <div class="d-flex">
+              <div class="w-100">
+                <h3 class="mb-4">Change Password</h3>
+              </div>
+            </div>
+            <form
+            [formGroup]="changePasswordForm"
+            (ngSubmit)="change()"
+            class="signin-form"
+          >
+            <div class="form-group mb-3 inputs">
+              <label class="label" for="name">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                formControlName="email"
+              />
+              <div
+                *ngIf="
+                  changePasswordForm.get('email').invalid &&
+                  (changePasswordForm.get('email').dirty ||
+                    changePasswordForm.get('email').touched)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="changePasswordForm.get('email').errors.required">
+                  Email is required.
+                </div>
+                <div *ngIf="changePasswordForm.get('email').errors.email">
+                  Invalid email format.
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3 inputs">
+              <label class="label" for="password">New Password</label>
+              <input
+                type="password"
+                class="form-control inputs"
+                placeholder="Password"
+                formControlName="password"
+              />
+              <div
+                *ngIf="
+                  changePasswordForm.get('password').invalid &&
+                  (changePasswordForm.get('password').dirty ||
+                    changePasswordForm.get('password').touched)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="changePasswordForm.get('password').errors.required">
+                  Password is required.
+                </div>
+                <div *ngIf="changePasswordForm.get('password').errors.minlength">
+                  Password should be at least 6 characters long.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="submit"
+                class="form-control btn btn-primary rounded submit px-3 btn-submit"
+                [disabled]="changePasswordForm.invalid"
+              >
+                Change Password
+              </button>
+            </div>
+          </form>
+          
+            <div class="form-group d-md-flex">
+              <div class="w-50 text-left"></div>
+              <div class="w-50 text-md-right end-data">
+                <a (click)="back()">Back</a>
+              </div>
+            </div>
+            <!-- <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

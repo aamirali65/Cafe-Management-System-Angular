@@ -1,0 +1,321 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">{{item_name}}</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+
+                <li class="breadcrumb-item active">{{item_name}}</li>
+            </ol>
+        </div>
+        <div class="">
+
+        </div>
+    </div>
+    <div class="dashboard">
+        <div class="row">
+            <div class="col-md-3 sidee">
+                <div class="sidebar">
+                    <ul>
+                        <li (click)="add_items()"  [ngClass]="{'item_name_active': item_name === 'Add Items'}"><i class="fa fa-regular fa-cart-plus"></i><span> Add <h1>Items</h1></span></li>
+                        <li (click)="view_items()" [ngClass]="{'item_name_active': item_name === 'View Items'}"><i class="fa fa-regular fa-eye"></i><span> View <h1>Items</h1></span></li>
+                        <li (click)="add_cate()"   [ngClass]="{'item_name_active': item_name === 'Add Category'}"><i class="fa fa-regular fa-cart-plus"></i><span> Add <h1>Category</h1></span></li>
+                        <li (click)="view_cate()"  [ngClass]="{'item_name_active': item_name === 'View Category'}"><i class="fa fa-regular fa-eye"></i><span> View <h1>Category</h1></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 dashboard-3" *ngIf="add_item" >
+                <div class="add-ietms">
+                 <form [formGroup]="item_add" (ngSubmit)="store_items()">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="exampleInputEmail1">Item Name</label>
+                                <input type="text" name="item" class="form-control" formControlName="name" id="exampleInputEmail1"
+                                    placeholder="Items Name"  [ngClass]="{'is-invalid': item_add.controls.name.errors && isSubmited_items}" />
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="exampleInputEmail1">Category</label>
+                                <select name="cat" class="form-control" formControlName="catlog_id" [(ngModel)]="selectedOption" [ngClass]="{'is-invalid': item_add.controls.catlog_id.errors && isSubmited_items}" >
+                                    <option selected="" disabled="" >Select One</option>
+
+
+                                    <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Item Price</label>
+                                <input type="text" name="price" class="form-control"formControlName="price"
+                                    placeholder="Enter Item Price"  [ngClass]="{'is-invalid': item_add.controls.price.errors && isSubmited_items}"  />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="exampleInputEmail1">Stock</label>
+                                <input type="number" name="stock" class="form-control"  formControlName="stock"
+                                    placeholder="Stock"  [ngClass]="{'is-invalid': item_add.controls.stock.errors && isSubmited_items}"  />
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="exampleInputEmail1">Manage Stock ?</label>
+                              <input type="checkbox"  formControlName="manage_stock">
+                          </div>
+
+
+                            <div class="form-group col-md-12">
+                              <label for="exampleInputEmail1">Image</label>
+                              <button type="button" class="form-control" [ngClass]="{'is-invalid': item_add.controls.image.errors && isSubmited_items}"  (click)="open(content)">Select Image</button>
+                              <input type="hidden" class="form-control" id="exampleInputEmail1"  formControlName="image" [(ngModel)]="image"
+                              placeholder="Stock" accept="jpg/png" />
+                          </div>
+                            <div class="form-group col-md-12 text-end">
+                                <button class="buton btn btn-primary">Add Item</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-9 dashboard-2" *ngIf="view_item" >
+                <div class="add-ietms-2">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12" id="style-4">
+
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+
+                                        <th>Item Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Image</th>
+                                        <th>Action</th>
+
+                                    </tr>
+
+                                </tbody>
+                                <tbody>
+
+                                  <tr *ngFor="let item of menuItems">
+
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.catlog.name}}</td>
+                                    <td>{{item.price}}</td>
+                                    <td>{{item.stock}}</td>
+                                    <td>  <img src="../../../assets/img/order/{{item.image}}" width="40" alt=""  /></td>
+                                    <td class="tds">
+                                      <a class="mx-3" (click)="delete_items(item.id)">
+                                        <i class="fa fa-trash"></i>
+                                      </a>
+                                      <a class="mx-1" (click)="editModal(edit,item)">
+                                        <i class="fa fa-pencil"></i>
+                                      </a>
+                                    </td>
+
+
+
+                                  </tr>
+
+
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-9 dashboard-3" *ngIf="add_cates" >
+                <div class="add-ietms">
+
+                      <div class="row">
+                        <div class="col-sm-12 col-xs-12 add-cat">
+                          <form  [formGroup]="formData" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                              <div class="form-group col-md-12">
+                                <label for="exampleInputEmail1">Categories Name</label>
+
+                      <input type="text" class="form-control" id="name" name="name" formControlName="name"  [(ngModel)]="name"  required minlength="3" [ngClass]="{'is-invalid': formData.controls.name.errors && isSubmited}" >
+
+                      <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+
+                              </div> -->
+                            </div>
+                            <div class="add-ietms-3">
+                              <div class="row">
+                                <div class="col-md-2 style-3" *ngFor="let img of images; index as i">
+                                  <div class="card card-cat click-able" [class.bordered]="selectedImageIndex === i" (click)="setIcon(img,i)">
+                                    <img src="../../../assets/img/icons/{{img}}" width="40" alt="" >
+                                  </div>
+                                </div>
+
+
+                              </div>
+
+
+                            </div>
+                            <input type="hidden" class="form-control" id="icon" name="icon" formControlName="icon"  [(ngModel)]="icon" required >
+                            <!-- <div *ngIf="icon.invalid && (icon.dirty || icon.touched)" class="text-danger">
+                              <div *ngIf="formData.icon.errors.required">
+                                Icon is required.
+                              </div>
+                            </div> -->
+                            <div class="row">
+                              <div class="form-group col-md-12 btnn my-5">
+                                <input
+                                  type="submit"
+                                  name="cata"
+                                  value="Add Category"
+                                  class="btn btn-primary btn-block"
+                                  placeholder="Items Name"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          </form>
+                        </div>
+                      </div>
+
+                  </div>
+            </div>
+            <div class="col-md-9 dashboard-2" *ngIf="view_cates" >
+                <div class="add-ietms-2">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12" id="style-4">
+
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+
+                                        <th>Category Name</th>
+                                        <th>Icon</th>
+                                        <th>Action</th>
+
+                                    </tr>
+
+                                </tbody>
+                                <tbody>
+
+                                    <tr *ngFor="let category of categories ;  index as i">
+
+                                        <td>  {{ category.name }}</td>
+                                        <td>     <img src="../../../assets/img/icons/{{category.icon}}" width="40" alt="" ></td>
+                                        <td><a class="mx-3" (click)="destroy(category.id)"
+                                               ><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+
+                                    <tr>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal class="modal">
+  <div class="modal-header imgM" style="display: block;">
+    <div class="modals">
+      <h4 class="modal-title">Images</h4>
+    <input type="text" placeholder="Search" id="">
+    </div>
+  </div>
+  <div class="modal-body img-body">
+      <div class="row">
+          <div class="col-md-3 style-3" *ngFor="let image of images2 ;index as i">
+            <div class="card card-cat click-able" [class.bordered]="selectedImageIndex_2 === i" (click)="setImage(image,i);modal.dismiss('cancel')" >
+              <img src="../../../assets/img/order/{{ image }}" width="40" alt=""  />
+            </div>
+          </div>
+        </div>
+
+  </div>
+
+</ng-template>
+<ng-template #content2 let-modal class="modal">
+  <div class="modal-header imgM" style="display: block;">
+    <div class="modals">
+      <h4 class="modal-title">Images</h4>
+    <input type="text" placeholder="Search" id="">
+    </div>
+  </div>
+  <div class="modal-body img-body">
+      <div class="row">
+
+          <div class="col-md-3 style-3" *ngFor="let image of images2 ;index as i">
+            <div class="card card-cat click-able" [class.bordered]="selectedImageIndex_2 === i" (click)="setImages(image,i);modal.dismiss('cancel')" >
+              <img src="../../../assets/img/order/{{ image }}" width="40" alt=""  />
+            </div>
+          </div>
+        </div>
+
+  </div>
+
+</ng-template>
+
+
+<!-- edit-modal -->
+<ng-template #edit let-modal class="modal" id="edit-modal">
+  <div class="modal-header editt" style="display: block;">
+    <div class="modals">
+      <h4 class="modal-title">Edit Items</h4>
+    </div>
+  </div>
+  <div class="modal-body edit-body">
+      <div class="add-ietms edit">
+        <form [formGroup]="itemForm" (ngSubmit)="onUpdate()">
+              <div class="row">
+                  <div class="form-group col-md-12">
+                      <label for="exampleInputEmail1">Item Name</label>
+                      <input type="text" name="name" class="form-control" formControlName="name"
+                          placeholder="Items Name" autocomplete="off" [value]="item_for_update.name"/>
+                          <input type="hidden" name="id" class="form-control" formControlName="id"
+                          placeholder="Items Name" autocomplete="off" value="{{item_for_update.id}}"/>
+
+                  </div>
+                  <div class="form-group col-md-12">
+                      <label for="exampleInputEmail1">Category</label>
+                      <select name="catlog_id" class="form-control" formControlName="catlog_id">
+                          <option selected="" disabled="">Select One</option>
+
+                          <option *ngFor="let category of categories" [value]="category.id" [selected]="category.id == item_for_update.catlog_id" >{{ category.name }}</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="exampleInputEmail1">Item Price</label>
+                      <input type="text" name="price" class="form-control" formControlName="price"
+                        placeholder="Enter Item Price" autocomplete="off" [value]="item_for_update.price"/>
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="exampleInputEmail1">Stock</label>
+                      <input type="number" name="stock" class="form-control" formControlName="stock"
+                          placeholder="Stock" autocomplete="off" [value]="item_for_update.stock"/>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputEmail1">Manage Stock ?</label>
+                    <input type="checkbox"  formControlName="manage_stock" [value]="item_for_update.manage_stock" [checked]="item_for_update.manage_stock == 1">
+                </div>
+                  <div class="form-group col-md-12">
+                      <label for="exampleInputEmail1">Image</label>
+                      <button type="button" class="form-control" (click)="open2(content2)">Select Image</button>
+                      <input type="hidden" class="form-control" formControlName="image" [(ngModel)]="image2"
+                         />
+                  </div>
+                  <div class="form-group col-md-12 text-end">
+                      <button class="buton btn btn-primary" type="submit" (click)="modal.dismiss('cancel')">Update</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+
+</ng-template>
+
+
+<app-footer></app-footer>

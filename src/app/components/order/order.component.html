@@ -1,0 +1,218 @@
+<app-header></app-header>
+<div class="container" id="cc">
+    <div class="box">
+        <div class="row">
+            <div class="col-md-9 cate">
+              <span class="loader" *ngIf="loader"></span>
+                <h4>Choose from popular categories</h4>
+                <div class="filter">
+                    <!-- <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+
+
+
+                        <li *ngFor="let item of items ;index as i" [ngbNavItem]="i" (click)="items_find(cat.id)">
+                            <a  [ngClass]="{'active': item.all == 'All'}"><img
+                                    src="../../../assets/img/icons/{{cat.icon}}"
+                                    alt=""> {{cat.name}}</a>
+                            <ng-template ngbNavContent>
+                                <div class="container">
+                                    <div class="row" id="row">
+                                        <div class="col-md-2" *ngFor="let item  of items">
+                                            <div class="cardz">
+                                                <img src="../../../assets/img/order/{{item.image}}"
+                                                    alt="">
+                                                <div class="detail">
+                                                    <span>{{item.name}}</span>
+                                                    <h5>Rs. {{item.price}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+
+                    </ul>
+
+                    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                </div> -->
+                <div class="category_tabs">
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item" *ngFor="let cat of categories ;index as i">
+                        <a href="#a{{cat.id}}" class="nav-link" [ngClass]="{'active': cat.name == 'All'}" data-bs-toggle="tab">  <img src="../../../assets/img/icons/{{cat.icon}}" width="25" alt="">{{cat.name}}</a>
+                    </li>
+                </ul>
+                <div class="tab-content" >
+                    <div class="tab-pane fade " [ngClass]="{'active': cat.name == 'All','show': cat.name == 'All'}"   *ngFor="let cat of categories ;index as i"  id="a{{cat.id}}">
+                      <div class="container">
+                        <div class="row" id="row">
+                          <div class="col-md-2"  *ngFor="let item of items[cat.name]">
+                                <div class="cardz click-able"   [ngClass]="{'disabled': item.manage_stock == 1 && item.stock == 0}" (click)="add_to_cart(order_id,item)">
+                                    <img src="../../../assets/img/order/{{item.image}}"
+                                        alt="">
+                                    <div class="detail">
+                                        <span>{{item?.name}}</span>
+                                        <span class="d-flex justify-content-between"><h5>Rs. {{item.price}}</h5> <h5>Stock. {{item.stock}}</h5></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+
+
+
+          </div>
+
+
+
+
+
+<!-- test -->
+
+
+
+
+<div class="col-md-3 cart">
+  <div class="main">
+      <div class="my-order">
+          <div class="heading">
+              <h5>Summary</h5>
+          </div>
+
+          <div class="row">
+              <div class="col-md-12 item-cart">
+
+                <div id="cart-info" *ngIf="empty">
+                  <div id="cart-content" class="cart-content"><div class="cart-item-empty"><p>Your cart is currently empty</p></div></div>
+                </div>
+
+                  <div class="myorders" *ngFor="let cart of cart_item;">
+                      <div class="main2">
+                          <div class="image"><img src="../../../assets/img/order/{{cart.item.image}}"></div>
+                          <div class="increment">
+                              <div class="h5">{{cart.item.name}}</div>
+                            <div class="btnsh">
+                              <button (click)="decrement(cart.item_id)">-</button>
+                              <input type="number" class="input" [value]="cart.item_qty">
+                              <button (click)="increment(cart.item_id)">+</button>
+                            </div>
+                            </div>
+                            <div class="col price">RS.{{cart.item_qty * cart.total_price}} <span class="close" (click)="remove_items(cart.id)"><i class="fa fa-trash"></i></span></div>
+                      </div>
+                  </div>
+
+
+
+
+
+              </div>
+          </div>
+<div class="row">
+  <div class="col-md-12">
+   <div class="selects">
+    <select class="form-control" [(ngModel)]="order_id" (change)="reterive_items()">
+      <option value="1">Paid</option>
+      <option value="2">Office</option>
+      <option value="3">Technologenesis</option>
+      <option value="4">Marksman</option>
+      <option value="5">Guest</option>
+    </select>
+  </div>
+   </div>
+  <div class="col-md-12">
+   <div class="inputsz">
+    <input type="text" class="form-control" placeholder="Recieved" [(ngModel)]="inputValue" (ngModelChange)="onInputChange(inputValue)" [ngClass]="{'is-invalid': inputValue < total_price}" pattern="[0-9]*">
+
+  </div>
+   </div>
+</div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="bill">
+                      <h6>Sub total</h6>
+                      <h6>Rs.{{total_price}}</h6>
+                  </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="bill">
+                      <h6>Return</h6>
+                      <h6>Rs. {{return}}</h6>
+                  </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="bill">
+                      <h6>Total</h6>
+                      <h6>Rs.{{total_price}}</h6>
+                  </div>
+              </div>
+
+          <div class="row">
+              <div class="btnd">
+                <button class="btn btn-primary" [disabled]="cart_item.length === 0" (click)="onPrint('sectionToPrint')" (keyup.enter)="onEnter('sectionToPrint')"  >Print Order</button>
+
+              </div>
+             </div>
+          </div>
+      </div>
+  </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<div id="sectionToPrint" style="display: none;">
+  <div class="invoice">
+    <div class="img">
+      <img src="../../../assets/img/logo.png" alt="Restaurant Logo" style="width: 80%;margin:auto;margin-top: 20px;">
+    </div>
+    <div class="invoice-header">
+      <div class="date">
+        <p>Order ID: </p>
+        <b>#122</b>
+      </div>
+      <div class="date">
+        <p>Date: </p>
+        <span> {{formattedDate}}</span>
+      </div>
+      <div class="date">
+        <p>Type: </p>
+        <b>{{ order_id == 1 ? 'Paid' : order_id == 2 ? 'Office' : order_id == 3 ? 'Technologenesis' : order_id == 4 ? 'Marksman' : order_id == 5 ? 'Guest' : '' }}</b>
+      </div>
+    </div>
+    <table class="invoice-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th style="padding-left: 0px;">Qty</th>
+          <th class="th">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let cart of cart_item;">
+          <td>{{cart.item.name}}</td>
+          <td>{{cart.item_qty}} </td>
+
+          <td>{{cart.item_qty * cart.total_price}} </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="invoice-total">
+      <p>Total:</p>
+      <p>Rs.{{total_price}}</p>
+    </div>
+    <div class="invoice-total">
+      <p>Return:</p>
+      <p>Rs.{{return}}</p>
+    </div>
+    <div class="text-center my-5">
+      <span>Powered By Technologenesis LTD {{formattedDate}}</span>
+    </div>
+  </div>
+</div>
+
+

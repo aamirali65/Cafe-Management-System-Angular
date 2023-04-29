@@ -1,0 +1,237 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-themecolor">{{item_name}}</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+
+        <li class="breadcrumb-item active">{{item_name}}</li>
+      </ol>
+    </div>
+  </div>
+  <div class="dashboard">
+    <div class="row">
+      <div class="col-md-3 sidee">
+        <div class="sidebar">
+          <ul>
+            <li
+              (click)="add_users()"
+              [ngClass]="{'useractive' : item_name === 'Add User'}"
+            >
+              <i class="fa fa-regular fa-cart-plus"></i
+              ><span>
+                Add
+                <h1>User</h1></span
+              >
+            </li>
+            <li
+              (click)="view_users()"
+              [ngClass]="{'useractive' : item_name === 'View User'}"
+            >
+              <i class="fa fa-regular fa-eye"></i
+              ><span>
+                View
+                <h1>User</h1></span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9 dashboard-3" *ngIf="add_user">
+        <div class="add-ietms">
+          <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Username</label>
+                <input
+                  type="text"
+                  name="item"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Enter Your Name"
+                  formControlName="name"
+                  [ngClass]="{'is-invalid': formData.controls.name.errors && isSubmited}"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Email</label>
+                <input
+                  type="email"
+                  name="item"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Enter Your Email"
+                  formControlName="email"
+                  [ngClass]="{'is-invalid': formData.controls.email.errors && isSubmited}"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Number</label>
+                <input
+                  type="tel"
+                  name="item"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Enter Cell Number here"
+                  formControlName="phone"
+                  [ngClass]="{'is-invalid': formData.controls.phone.errors && isSubmited}"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Password</label>
+                <input
+                  type="password"
+                  name="item"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Enter Your Password"
+                  formControlName="password"
+                  [ngClass]="{'is-invalid': formData.controls.password.errors && isSubmited}"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputEmail1">Role</label>
+                <select
+                  name="cat"
+                  class="form-control"
+                  [(ngModel)]="role"
+                  formControlName="role"
+                  [ngClass]="{'is-invalid': formData.controls.role.errors && isSubmited}"
+                >
+                  <option> Admin </option>
+                  <option> User </option>
+                </select>
+              </div>
+              <div class="form-group col-md-12 text-end">
+                <button class="buton btn btn-primary">Add User</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-9 dashboard-2" *ngIf="view_user">
+        <div class="add-ietms-2">
+          <div class="row">
+            <div class="col-sm-12 col-xs-12" id="style-4">
+              <table class="table table-striped">
+                <tbody>
+                  <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <span class="loader" *ngIf="loader"></span>
+                  <tr *ngFor="let userList of user">
+                    <td>{{userList.name}}</td>
+                    <td>{{userList.role}}</td>
+                    <td>{{userList.email}}</td>
+                    <td>{{userList.phone}}</td>
+                    <td>
+                      <a (click)="user_edit(content,userList)"
+                        ><i class="fa fa-edit"></i
+                      ></a>
+                      <a class="mx-3" (click)="delete_items(userList.id)"
+                        ><i class="fa fa-trash"></i
+                      ></a>
+                    </td>
+                  </tr>
+
+                  <tr></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- edit-modal -->
+<ng-template #content let-modal class="modal" id="edit-modal">
+    <div class="modal-header editt user" style="display: block;">
+        <div class="modals">
+          <h4 class="modal-title">Edit User</h4>
+        </div>
+      </div>
+  <div class="modal-body edit-body">
+    <div class="add-ietms uses-modal">
+      <form [formGroup]="userForm" (ngSubmit)="onUpdate()">
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="exampleInputEmail1">Username</label>
+            <input
+              type="text"
+              name="item"
+              class="form-control"
+              formControlName="name"
+              id="exampleInputEmail1"
+              placeholder="Enter Your Name"
+              value="{{user_for_update.name}}"
+              autocomplete="off"
+            />
+            <input
+              type="hidden"
+              name="id"
+              class="form-control"
+              formControlName="id"
+              placeholder="Items Name"
+              autocomplete="off"
+              value="{{user_for_update.id}}"
+            />
+          </div>
+          <div class="form-group col-md-12">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              type="email"
+              name="item"
+              class="form-control"
+              id="exampleInputEmail1"
+              placeholder="Enter Your Email"
+              value="{{user_for_update.email}}"
+              formControlName="email"
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-group col-md-12">
+            <label for="exampleInputEmail1">Number</label>
+            <input
+              type="tel"
+              name="item"
+              class="form-control"
+              id="exampleInputEmail1"
+              placeholder="Enter Cell Number here"
+              value="{{user_for_update.phone}}"
+              formControlName="phone"
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-group col-md-12">
+            <label for="exampleInputEmail1">Role</label>
+            <select name="cat" class="form-control" formControlName="role">
+              <option selected="" disabled="">Select Rule</option>
+              <option [selected]="user_for_update.role === 'Admin'">
+                Admin
+              </option>
+              <option [selected]="user_for_update.role === 'User'">
+                User
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-md-12 text-end">
+            <button class="buton btn btn-primary">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<app-footer></app-footer>

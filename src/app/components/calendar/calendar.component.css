@@ -1,0 +1,229 @@
+.left{
+    width: 30%;
+    height: auto;
+    background: #1976d2;
+    border-radius: 20px 0 0 20px;
+}
+.datees {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.datees h1 {
+    font-size: 55px;
+    margin: 0;
+    font-weight: bold;
+}
+.sale {
+    color: white;
+    height: 680px;
+    margin: 20px;
+}
+.paid {
+    text-align: center;
+    margin-top: 20px;
+}
+.day-number{
+    font-size: 26px;
+    font-weight: 600
+}
+.day-text{
+    font-size: 16px;
+}
+.active{
+    background-color: #1976d2;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.active .day-text{
+    color: white
+}
+.day-text{
+    color: green;
+}
+table.table {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+td {
+    padding: 11px !important;
+}
+.revnue {
+    display: flex;
+    justify-content: space-around;
+}
+.table-c::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #1976d27e;
+    border-radius: 10px;
+
+}
+
+.table-c::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.table-c::-webkit-scrollbar-thumb
+{
+	background-color: #ffffff;
+    border-radius: 10px;
+}
+.bil{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    /* color: white; */
+}
+.revnue{
+    color: white;
+    margin-top: -20px;
+}
+.table-c {
+    height: 325px;
+    overflow: auto;
+}
+.custom-day.highlighted {
+  background-color: #1976d2;
+  padding: 32px 70px;
+  color: #fff;
+}
+.loader {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid #4fa2f6;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    position: absolute;
+    top: 43%;
+    left: 15%;
+    transform: translate(-50%, -50%)
+  }
+  .loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-bottom: 4px solid #ffffff;
+    border-left: 4px solid transparent;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .text-center span {
+    color: #ccc;
+    position: relative;
+    font-size: 10px !important;
+    bottom: 0;
+    margin: auto;
+    left: 50px;
+    text-align: center;
+    right: 50%;
+  }
+  .my-5 {
+    position: absolute;
+    bottom: -40px;
+    text-align: center;
+    margin: auto;
+  }
+  .invoice {
+    margin: 5px auto;
+    max-width: 800px;
+    padding: 5px;
+  }
+  .invoice-header {
+    margin-bottom: 5px;
+  }
+  .invoice-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .invoice-header p {
+    margin: 0;
+  }
+  .invoice-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .invoice-table th, .invoice-table td {
+    border-bottom: 1px solid #ccc;
+    padding: 5px !important;
+    text-align: left;
+  }
+  .invoice-table th {
+    background-color: #f2f2f2;
+  }
+  .date{
+    display: flex;
+    justify-content: space-between;
+  }
+  .qty{
+    margin: auto;
+  }
+  tr td:first-child{
+    width: 40rem;
+  }
+  .text-center span{
+    color: #ccc;
+    font-size: 10px !important;
+  }
+  .img img{
+    width: 80%;
+  }
+  .img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .th{
+    text-align: center !important;
+  }
+  .invoice-total p{
+    padding-right: 15px;
+    }
+    .invoice-total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: -25px;
+      line-height: 30px;
+    }
+    .invoice-total p {
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .theme_btn{
+        border: 1px solid white;
+    }

@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="toolbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header py-2">
+            <div class="logo">
+              <h2>Marksman Cafe</h2>
+            </div>
+            <div class="drop">
+              <div ngbDropdown class="d-inline-block">
+                <img
+                  src="../../../assets/img/User-Avatar-in-Suit-PNG.png"
+                  alt=""
+                  id="dropdownBasic1"
+                  ngbDropdownToggle
+                />
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem (click)="logout()">Log Out</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar my-1">
+<div class="nav-links">
+  <ul>
+    <li><a routerLink="">Dashboard</a></li>
+    <li><a routerLink="/items">Items</a></li>
+    <li><a routerLink="/order">Orders</a></li>
+    <li><a routerLink="/user">Users</a></li>
+    <li><a routerLink="/calender">Calender</a></li>
+  </ul>
+</div>
+  </div>
+</div>

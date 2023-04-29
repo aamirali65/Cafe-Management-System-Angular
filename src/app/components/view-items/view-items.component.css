@@ -1,0 +1,36 @@
+.dashboard{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    background-color: white !important;
+}
+a{
+    text-decoration: none;
+}
+.sidebar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 30px;
+}
+.sidebar ul li a{
+    font-size: 18px;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+form label {
+    font-weight: 400;
+}
+.form-control {
+    color: #67757c;
+    min-height: 38px;
+    display: initial;
+}
+.add-ietms{
+    margin: 30px;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}

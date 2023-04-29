@@ -1,0 +1,90 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-themecolor">Add Category</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+
+        <li class="breadcrumb-item active">Add Category</li>
+      </ol>
+    </div>
+    <div class=""></div>
+  </div>
+  <div class="dashboard">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="sidebar">
+          <ul>
+            <li>
+              <a routerLink="/items"
+                ><i class="fa fa-regular fa-cart-plus"></i> Add Items</a
+              >
+            </li>
+            <li>
+              <a routerLink="/view-items"
+                ><i class="fa fa-regular fa-eye"></i> View Items</a
+              >
+            </li>
+            <li>
+              <a routerLink="/add-category"
+                ><i class="fa fa-regular fa-cart-plus"></i> Add Category</a
+              >
+            </li>
+            <li>
+              <a routerLink="/view-category"
+                ><i class="fa fa-regular fa-eye"></i> View Category</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="add-ietms">
+
+            <div class="row">
+              <div class="col-sm-12 col-xs-12">
+                <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+                  <div class="row">
+                    <div class="form-group col-md-12">
+                      <label for="exampleInputEmail1">Categories Name</label>
+
+
+                      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="formData.name" required minlength="3" #name="ngModel">
+                      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+                        <div *ngIf="formData.name.errors.required">
+                          Name is required.
+                        </div>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-12">
+                      <input
+                        type="submit"
+                        name="cata"
+                        value="Add Categories"
+                        class="btn btn-primary btn-block"
+                        placeholder="Items Name"
+                      />
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="icon" name="icon" [(ngModel)]="formData.icon" required #icon="ngModel">
+                  <div *ngIf="icon.invalid && (icon.dirty || icon.touched)" class="text-danger">
+                    <div *ngIf="formData.icon.errors.required">
+                      Icon is required.
+                    </div>
+                  </div>
+                </div>
+                </form>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

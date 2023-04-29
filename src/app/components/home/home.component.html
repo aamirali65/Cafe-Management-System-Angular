@@ -1,0 +1,335 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Dashboard</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </div>
+        <div class="">
+
+        </div>
+    </div>
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="m-b-0"><i class="fa fa-database text-info"></i></h2>
+                        <h3 class="">RS.{{paidAmount}}</h3>
+                        <h6 class="card-subtitle">Today Sale</h6>
+                    </div>
+                    <div class="col-12">
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 85%; height: 6px;"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="m-b-0"><i class="fa fas fa-exclamation-circle text-success"></i></h2>
+                        <h3 class="">RS.{{unpaidAmount}}</h3>
+                        <h6 class="card-subtitle">Today Unpaid</h6>
+                    </div>
+                    <div class="col-12">
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 40%; height: 6px;"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="m-b-0"><i class="fa fa-database text-purple"></i></h2>
+                        <h3 class="">RS.{{monthlyPaidAmount}}</h3>
+                        <h6 class="card-subtitle">This Month Sale</h6>
+                    </div>
+                    <div class="col-12">
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 56%; height: 6px;"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="m-b-0"><i class="fa fas fa-exclamation-circle text-warning"></i></h2>
+                        <h3 class="">RS.{{monthlyUnpaidAmount}}</h3>
+                        <h6 class="card-subtitle">This Month Unpaid</h6>
+                    </div>
+                    <div class="col-12">
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 26%; height: 6px;"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-8 col-xlg-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex flex-wrap">
+                                <div>
+                                    <h4 class="card-title text-dark">Yearly Earning</h4>
+                                </div>
+                                <div class="ml-auto">
+                                    <ul class="list-inline">
+                                        <li>
+                                            <h6 class="text-muted text-success"><i
+                                                    class="fa fa-circle font-10 m-r-10 "></i>Sales</h6>
+                                        </li>
+                                        <li>
+                                            <h6 class="text-muted  text-info"><i
+                                                    class="fa fa-circle font-10 m-r-10"></i>Earning ($)</h6>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div id="earning"
+                                style="height: 355px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                <svg height="355" version="1.1" width="800" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="overflow: hidden; position: relative;">
+                                    <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël
+                                        2.2.0</desc>
+                                    <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text
+                                        x="32.84765625" y="316" text-anchor="end" font-family="sans-serif"
+                                        font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan>
+                                    </text>
+                                    <path fill="none" stroke="#e0e0e0" d="M45.34765625,316H1142.5" stroke-width="0.5"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                        x="32.84765625" y="243.25" text-anchor="end" font-family="sans-serif"
+                                        font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">75</tspan>
+                                    </text>
+                                    <path fill="none" stroke="#e0e0e0" d="M45.34765625,243.25H1142.5" stroke-width="0.5"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                        x="32.84765625" y="170.5" text-anchor="end" font-family="sans-serif"
+                                        font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">150</tspan>
+                                    </text>
+                                    <path fill="none" stroke="#e0e0e0" d="M45.34765625,170.5H1142.5" stroke-width="0.5"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                        x="32.84765625" y="97.75" text-anchor="end" font-family="sans-serif"
+                                        font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">225</tspan>
+                                    </text>
+                                    <path fill="none" stroke="#e0e0e0" d="M45.34765625,97.75H1142.5" stroke-width="0.5"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                        x="32.84765625" y="25" text-anchor="end" font-family="sans-serif"
+                                        font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">300</tspan>
+                                    </text>
+                                    <path fill="none" stroke="#e0e0e0" d="M45.34765625,25H1142.5" stroke-width="0.5"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="1142.5"
+                                        y="328.5" text-anchor="middle" font-family="sans-serif" font-size="12px"
+                                        stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2017
+                                        </tspan>
+                                    </text><text x="959.307592238823" y="328.5" text-anchor="middle"
+                                        font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2016
+                                        </tspan>
+                                    </text><text x="776.6157101819115" y="328.5" text-anchor="middle"
+                                        font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2015
+                                        </tspan>
+                                    </text><text x="593.923828125" y="328.5" text-anchor="middle"
+                                        font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2014
+                                        </tspan>
+                                    </text><text x="411.2319460680885" y="328.5" text-anchor="middle"
+                                        font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013
+                                        </tspan>
+                                    </text><text x="228.03953830691148" y="328.5" text-anchor="middle"
+                                        font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012
+                                        </tspan>
+                                    </text><text x="45.34765625" y="328.5" text-anchor="middle" font-family="sans-serif"
+                                        font-size="12px" stroke="none" fill="#888888"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                        font-weight="normal" transform="matrix(1,0,0,1,0,7)">
+                                        <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2011
+                                        </tspan>
+                                    </text>
+                                    <path fill="#3c8dde" stroke="none"
+                                        d="M45.34765625,267.5C91.02062676422787,248.1,182.3665677926836,193.5325239398085,228.03953830691148,189.9C273.83764024720574,186.2575239398085,365.43384412779426,231.11504787961695,411.2319460680885,238.4C456.9049165823164,245.66504787961696,548.2508576107721,260.225,593.923828125,248.10000000000002C639.5967986392279,235.97500000000002,730.9427396676836,145.64375,776.6157101819115,141.4C822.2886806961394,137.15625,913.634621724595,222.62588919288646,959.307592238823,214.15C1005.1056941791172,205.65088919288647,1096.7018980597059,108.6625,1142.5,73.5L1142.5,316L45.34765625,316Z"
+                                        fill-opacity="0"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0;"></path>
+                                    <path fill="none" stroke="#1976d2"
+                                        d="M45.34765625,267.5C91.02062676422787,248.1,182.3665677926836,193.5325239398085,228.03953830691148,189.9C273.83764024720574,186.2575239398085,365.43384412779426,231.11504787961695,411.2319460680885,238.4C456.9049165823164,245.66504787961696,548.2508576107721,260.225,593.923828125,248.10000000000002C639.5967986392279,235.97500000000002,730.9427396676836,145.64375,776.6157101819115,141.4C822.2886806961394,137.15625,913.634621724595,222.62588919288646,959.307592238823,214.15C1005.1056941791172,205.65088919288647,1096.7018980597059,108.6625,1142.5,73.5"
+                                        stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                                    <circle cx="45.34765625" cy="267.5" r="3" fill="#1976d2" stroke="#1976d2"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="228.03953830691148" cy="189.9" r="3" fill="#1976d2" stroke="#1976d2"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="411.2319460680885" cy="238.4" r="3" fill="#1976d2" stroke="#1976d2"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="593.923828125" cy="248.10000000000002" r="3" fill="#1976d2"
+                                        stroke="#1976d2" stroke-width="1"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                    <circle cx="776.6157101819115" cy="141.4" r="3" fill="#1976d2" stroke="#1976d2"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="959.307592238823" cy="214.15" r="3" fill="#1976d2" stroke="#1976d2"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="1142.5" cy="73.5" r="3" fill="#1976d2" stroke="#1976d2" stroke-width="1"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                    <path fill="#59ccda" stroke="none"
+                                        d="M45.34765625,238.4C91.02062676422787,233.55,182.3665677926836,216.578317373461,228.03953830691148,219C273.83764024720574,221.42831737346103,365.43384412779426,269.9415868673051,411.2319460680885,257.8C456.9049165823164,245.69158686730506,548.2508576107721,132.9125,593.923828125,122C639.5967986392279,111.0875,730.9427396676836,158.375,776.6157101819115,170.5C822.2886806961394,182.625,913.634621724595,219,959.307592238823,219C1005.1056941791172,219,1096.7018980597059,182.625,1142.5,170.5L1142.5,316L45.34765625,316Z"
+                                        fill-opacity="0"
+                                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0;"></path>
+                                    <path fill="none" stroke="#26c6da"
+                                        d="M45.34765625,238.4C91.02062676422787,233.55,182.3665677926836,216.578317373461,228.03953830691148,219C273.83764024720574,221.42831737346103,365.43384412779426,269.9415868673051,411.2319460680885,257.8C456.9049165823164,245.69158686730506,548.2508576107721,132.9125,593.923828125,122C639.5967986392279,111.0875,730.9427396676836,158.375,776.6157101819115,170.5C822.2886806961394,182.625,913.634621724595,219,959.307592238823,219C1005.1056941791172,219,1096.7018980597059,182.625,1142.5,170.5"
+                                        stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                                    <circle cx="45.34765625" cy="238.4" r="3" fill="#26c6da" stroke="#26c6da"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="228.03953830691148" cy="219" r="3" fill="#26c6da" stroke="#26c6da"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="411.2319460680885" cy="257.8" r="3" fill="#26c6da" stroke="#26c6da"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="593.923828125" cy="122" r="3" fill="#26c6da" stroke="#26c6da"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="776.6157101819115" cy="170.5" r="3" fill="#26c6da" stroke="#26c6da"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="959.307592238823" cy="219" r="3" fill="#26c6da" stroke="#26c6da"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                    <circle cx="1142.5" cy="170.5" r="3" fill="#26c6da" stroke="#26c6da"
+                                        stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    </circle>
+                                </svg>
+                                <div class="morris-hover morris-default-style"
+                                    style="left: 724.756px; top: 67px; display: none;">
+                                    <div class="morris-hover-row-label">2015</div>
+                                    <div class="morris-hover-point" style="color: #1976d2">
+                                        Sales:
+                                        180
+                                    </div>
+                                    <div class="morris-hover-point" style="color: #26c6da">
+                                        Earning:
+                                        150
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <div class="col-lg-4 col-xlg-3">
+            <div class="card card-inverse card-info">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="m-r-20 align-self-center">
+                            <h1 class="text-white"><i class="fa fa-lightbulb-o"></i></h1>
+                        </div>
+                        <div>
+                            <h3 class="card-title">Sales Analytics</h3>
+                            <h6 class="card-subtitle">March 2017</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 align-self-center">
+                            <h2 class="font-light text-white"><sup><small><i class="fa fa-arrow-up"></i></small></sup>35487
+                            </h2>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card card-inverse card-success">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="m-r-20 align-self-center">
+                            <h1 class="text-white"><i class="fa fa-pie-chart"></i></h1>
+                        </div>
+                        <div>
+                            <h3 class="card-title">Bandwidth usage</h3>
+                            <h6 class="card-subtitle">March 2017</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 align-self-center">
+                            <h2 class="font-light text-white">50 GB</h2>
+                        </div>
+                        <div class="col-6 p-t-10 p-b-20 text-right align-self-center">
+                            <div class="spark-count2" style="height:65px"><canvas width="90" height="90"
+                                    style="display: inline-block; width: 90px; height: 90px; vertical-align: top;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+    </div>
+</div>
+
+<app-footer></app-footer>
